@@ -12,6 +12,4 @@ public interface InfirmierService {
     Optional<Infirmier> getById(Long id);
     List<Infirmier> findAll();
     List<Infirmier> deleteById(Long id);
-
-    // adresses/1/patients/1/infirmiers
 }

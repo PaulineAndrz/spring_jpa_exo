@@ -24,6 +24,7 @@ public class PatientServiceImpl implements PatientService {
         currentPatient.setNumeroSecuriteSociale(patient.getNumeroSecuriteSociale());
         currentPatient.setInfirmier(patient.getInfirmier());
         currentPatient.setAdresse(patient.getAdresse());
+        currentPatient.setSexe(patient.getSexe());
         this.create(currentPatient);
         return ResponseEntity.ok(currentPatient);
     }
@@ -47,8 +48,9 @@ public class PatientServiceImpl implements PatientService {
         return this.findAll();
     }
 
-    public List<Infirmier> findInfirmierById(Long id) {
-        return this.patientRepository.findInfirmierById(id);
+    public Infirmier findInfirmierByPatientId(Long id) {
+        Patient currentPatient = this.getById(id).orElseThrow(RuntimeException::new);
+        return currentPatient.getInfirmier();
     }
 
     public List<Patient> findPatientByNomAndPrenom(String nom, String prenom) {

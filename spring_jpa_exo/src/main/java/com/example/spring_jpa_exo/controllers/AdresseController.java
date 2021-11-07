@@ -43,8 +43,9 @@ public class AdresseController {
         return this.adresseService.update(adresse, id);
     }
 
-    @GetMapping("/{ville}")
-    public List<Adresse> findByVille(@RequestParam(required = false) String ville) {
+    @GetMapping("/")
+    public List<Adresse> findByVille(@RequestParam String ville) {
         return this.adresseService.findByVille(ville);
     }
+
 }

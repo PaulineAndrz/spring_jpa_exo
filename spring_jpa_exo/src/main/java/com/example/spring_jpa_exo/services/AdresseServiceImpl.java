@@ -42,8 +42,8 @@ public class AdresseServiceImpl implements AdresseService {
         return this.findAll();
     }
 
-    @Override
     public List<Adresse> findByVille(String ville) {
         return this.adresseRepository.findByVille(ville);
     }
+
 }

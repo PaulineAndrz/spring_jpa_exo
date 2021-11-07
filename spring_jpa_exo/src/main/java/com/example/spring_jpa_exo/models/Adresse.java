@@ -1,14 +1,13 @@
 package com.example.spring_jpa_exo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -23,4 +22,9 @@ public class Adresse {
     private String rue;
     private String codePostal;
     private String ville;
+
+    @JsonIgnore
+    @OneToMany
+    @JoinColumn(name = "patients_id", referencedColumnName = "id")
+    private List<Patient> patients;
 }

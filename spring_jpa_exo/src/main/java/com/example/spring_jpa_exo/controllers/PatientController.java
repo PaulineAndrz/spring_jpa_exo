@@ -46,13 +46,12 @@ public class PatientController {
     }
 
     @GetMapping("/{id}/infirmiers")
-    public List<Infirmier> findInfirmierById(Long id) {
-        return this.patientService.findInfirmierById(id);
+    public Infirmier findInfirmierById(@PathVariable Long id) {
+        return this.patientService.findInfirmierByPatientId(id);
     }
 
-    @GetMapping("/{nom}&{prenom}")
+    @GetMapping("/")
     public List<Patient> findPatientByNomAndPrenom(@RequestParam String nom, @RequestParam String prenom) {
         return this.patientService.findPatientByNomAndPrenom(nom, prenom);
     }
-
 }

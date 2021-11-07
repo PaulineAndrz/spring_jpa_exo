@@ -13,6 +13,6 @@ public interface PatientService {
     Optional<Patient> getById(Long id);
     List<Patient> findAll();
     List<Patient> deleteById(Long id);
-    List<Infirmier> findInfirmierById(Long id);
+    Infirmier findInfirmierByPatientId(Long id);
     List<Patient> findPatientByNomAndPrenom(String nom, String prenom);
 }
